@@ -1,0 +1,33 @@
+name: rfw_ui
+description: "A UI kit for Remote Flutter Widgets: the widgets rfw leaves out, theme tokens instead of repeated styles, actions for dialogs, sheets and pickers, and a ThemeData that is data."
+version: 0.1.0
+publish_to: "none"
+
+environment:
+  sdk: ^3.13.3
+
+# rfw for the runtime it extends, and cupertino_icons so that a remote file
+# asking for `cupertino.house` gets a glyph and not a box: a package's fonts
+# are bundled into every app that depends on it.
+dependencies:
+  cupertino_icons: ">=1.0.8 <3.0.0"
+  flutter:
+    sdk: flutter
+  rfw:
+    path: ../rfw
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # Every test fails if it leaves a controller, a focus node or any other
+  # disposable undisposed; see test/flutter_test_config.dart.
+  leak_tracker_flutter_testing: any
+  # forceGC, for tests that a widget gone from the screen is let go of.
+  leak_tracker: any
+  flutter_lints: ^6.0.0
+
+# rfw 1.1.4 with changes of our own, each listed with its reason in
+# packages/rfw/PATCHES.md.
+# dependency_overrides:
+#   rfw:
+#     path: ../rfw

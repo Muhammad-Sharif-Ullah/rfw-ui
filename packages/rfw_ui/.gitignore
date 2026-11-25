@@ -1,0 +1,8 @@
+# Dart/Flutter artefacts
+.dart_tool/
+.packages
+build/
+
+# A library package does not pin its dependents' versions, so the lock file is
+# an artefact of whoever ran `pub get` here, not part of the package.
+pubspec.lock
